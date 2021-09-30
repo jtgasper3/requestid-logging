@@ -18,14 +18,15 @@ repositories {
 }
 
 dependencies {
-    // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:7.4.0'
+    testImplementation 'org.mockito:mockito-all:1.10.19'
+    testImplementation 'org.testng:testng:7.4.0' // Use TestNG framework, also requires calling test.useTestNG() below
+    testImplementation 'ch.qos.logback:logback-classic:1.2.6'
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
+    api 'org.slf4j:slf4j-api:1.7.32'
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'javax.servlet:javax.servlet-api:3.0.1'
 }
 
 tasks.named('test') {
@@ -33,11 +34,15 @@ tasks.named('test') {
     useTestNG()
 }
 
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 publishing {
     publications {
         maven(MavenPublication) {
             from components.java
-//            artifact sourceJar
         }
     }
 
