@@ -1,6 +1,46 @@
 # RequestIdLoggingFilter
 A small library to add x-request-id and x-correlation-id logging support for Tomcat and Spring apps
 
+## Usage
+
+### Maven
+
+Add the dependency and repository to the `pom.xml`:
+```xml
+<project>
+  ...
+  <dependencies>
+    <dependency>
+      <groupId>io.github.jtgasper3</groupId>
+      <artifactId>requestid-logging</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  <dependencies>
+
+  <repositories>
+    <repository>
+      <id>my-internal-site</id>
+      <url>https://maven.pkg.github.com/jtgasper3/requestid-logging</url>
+    </repository>
+  </repositories>
+  ...
+</project>
+```
+
+### Gradle
+
+Add the dependency and repository to the `build.gradle`:
+
+```groovy
+repositories {
+    maven { url "https://maven.pkg.github.com/jtgasper3/requestid-logging" }
+}
+
+dependencies {
+    implementation "io.github.jtgasper3:requestid-logging:0.0.1-SNAPSHOT"
+}
+```
+
 ## Overriding Default Filter Values
 
 ```xml
